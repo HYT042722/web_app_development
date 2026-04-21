@@ -1,0 +1,161 @@
+/* 為了使美學超越常規，使用以 Dark Mode 為基底的玻璃擬物風格 (Glassmorphism) */
+body {
+    background: #0f172a;
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(30, 27, 75, 1) 0, transparent 40%), 
+        radial-gradient(at 100% 0%, rgba(56, 31, 88, 0.4) 0, transparent 50%);
+    font-family: 'Outfit', sans-serif;
+    color: #f8fafc;
+    min-height: 100vh;
+}
+
+/* 頂部導航霧化 */
+.glass-nav {
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #60a5fa, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1px;
+}
+
+/* 新增任務區塊卡片玻璃化 */
+.premium-card {
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.25rem;
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.6);
+}
+
+.premium-input {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #f8fafc !important;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.premium-input::placeholder {
+    color: #64748b;
+}
+
+.premium-input:focus {
+    background: rgba(15, 23, 42, 0.8);
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15);
+}
+
+.premium-input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    opacity: 0.5;
+}
+
+.premium-btn {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-weight: 600;
+}
+
+.premium-btn:hover {
+    transform: translateY(-2px);
+    color: white;
+    box-shadow: 0 6px 15px rgba(124, 58, 237, 0.4);
+}
+
+/* 列出的任務項目動效 */
+.task-item {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.task-item:hover {
+    background: rgba(30, 41, 59, 0.8);
+    transform: translateX(6px);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.btn-icon {
+    padding: 0.4rem;
+    background: transparent;
+    border: none;
+    transition: transform 0.2s;
+}
+
+.btn-icon:hover {
+    transform: scale(1.15) rotate(3deg);
+}
+
+.toggle-btn {
+    color: #64748b;
+}
+
+.toggle-btn.completed {
+    color: #10b981;
+}
+
+.done-check {
+    filter: drop-shadow(0px 0px 4px rgba(16, 185, 129, 0.5));
+}
+
+.empty-circle {
+    width: 26px;
+    height: 26px;
+    border: 2px solid #475569;
+    border-radius: 50%;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.toggle-btn:hover .empty-circle {
+    border-color: #10b981;
+    background-color: rgba(16, 185, 129, 0.1);
+}
+
+.delete-btn {
+    opacity: 0.3;
+    transition: all 0.2s;
+}
+
+.task-item:hover .delete-btn {
+    opacity: 1;
+}
+
+.delete-btn:hover {
+    color: #ef4444 !important;
+    filter: drop-shadow(0px 0px 6px rgba(239, 68, 68, 0.4));
+}
+
+.empty-state {
+    background: rgba(255,255,255, 0.02);
+    border-color: rgba(255,255,255,0.05) !important;
+}
+
+/* 進場微動效 */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-up {
+    animation: slideUp 0.4s ease forwards;
+    opacity: 0;
+}
+
+.slide-in {
+    animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.fade-in {
+    animation: slideUp 0.7s ease forwards;
+    opacity: 0;
+}
